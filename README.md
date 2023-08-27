@@ -1,4 +1,4 @@
-An attempt to bring the core abilities of TAPI into modern programming languages, so that everyone can use them.
+An attempt to bring the core abilities of TAPI into modern programming languages, so that everyone can use them as simple single files.
 
 ## Background
 **Microsoft TAPI (Telephony Application Programming Interface)** is unified modem control API for Windows, which allows making calls, display calls (including caller ID), etc. regardless of the modem.
