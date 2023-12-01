@@ -17,7 +17,7 @@ A Python script that can call a numbers, which is delivered via a command line p
 1. Change the `USB` in `modem = "USB"` to another word that is contained in the modem's name (so it will know which modem to use).
 
 ## callerid.py
-A Python script that pops up incoming calls including caller ID. **This one is exclusive** - try searching for anything similar online and you'll only find ununaswered questions or [non working codes](https://github.com/firstoxe/TAPI-Event-monitor/issues/1).
+A Python script that pops up incoming calls including caller ID. **This one is exclusive** - try searching for anything similar online and you'll only find ununaswered questions or ~~[non working codes](https://github.com/firstoxe/TAPI-Event-monitor/issues/1)~~.
 
 **Usage:** just run the script as-is.
 
