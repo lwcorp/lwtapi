@@ -3,7 +3,7 @@ An attempt to bring the core abilities of TAPI into modern programming languages
 ## Background
 **Microsoft TAPI (Telephony Application Programming Interface)** is unified modem control API for Windows, which allows making calls, displaying calls (including caller ID), etc. regardless of the modem.
 <br />Prior to TAPI, each modem used different commands to pull each action.
-<br />In addition, TAPI allows using modems in an asynchronous (parallel) way, so that the modem can be used at the same time by different programs.
+<br />In addition, TAPI allows using modems in an asynchronous (parallel) way, so that the same modem can be used at the same time by different programs.
 
 Unfortunately, it's hard to find new programs or codes that use TAPI, especially free ones. It might be because Microsoft's TAPI documenation is super hard to deicpher.
 
