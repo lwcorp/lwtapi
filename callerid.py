@@ -1,6 +1,8 @@
 import pythoncom, time
 import win32com.client
 cls="TAPI.TAPI"
+modemAll = True
+modem = "USB"
 # need for gen_py
 ti = win32com.client.Dispatch(cls)._oleobj_.GetTypeInfo()
 tlb, index = ti.GetContainingTypeLib()
@@ -68,11 +70,22 @@ tapi.Initialize() # must run after Dispatch and before TapiEvents
 events=TapiEvents(tapi)
 tapi.EventFilter = 0x1FFFF
 
-for addr in tapi.Addresses: 
+found = False
+modemList = []
+for addr in tapi.Addresses:
     try:
-        tapi.RegisterCallNotifications(addr,True,True,8,0)
+        if modemAll or modem in addr.AddressName:
+            found = True
+            tapi.RegisterCallNotifications(addr, True, True, 8, 0)
+            if not modemAll:
+                break
+        else:
+            modemList.append(addr.AddressName)
     except:
         pass
+if not found:
+    modemList = str(modemList).strip('[]').replace(',', '\n')
+    print(f"No modem matched '{modem}' in:\n{modemList}")
 
 if not print_console:
   try:
