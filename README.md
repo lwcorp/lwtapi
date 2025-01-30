@@ -21,4 +21,7 @@ A Python script that pops up incoming calls including caller ID. **This one is e
 
 **Usage:** just run the script as-is.
 
-**Configuration:** change `print_console = False` to `print_console = True` if you prefer the output to run in the OS console instead of a popup GUI.
+**Configuration:**
+1. Change `print_console = False` to `print_console = True` if you prefer the output to run in the OS console instead of a popup GUI.
+1. Change `modemAll = True` to `modemAll = False` to not make the caller ID work in every possile modem (if you have more than one modem).
+1. Change the `USB` in `modem = "USB"` to another word that is contained in the modem's name (so it will know which modem to use for Caller ID).
