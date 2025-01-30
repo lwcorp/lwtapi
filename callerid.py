@@ -31,16 +31,34 @@ class TapiEvents(win32com.client.getevents(cls)):
             except:
                pass
 
-def print_check_error(str, obj, code):
-   try:
-    output = obj.CallInfoString(code)
-    if bool(output):
-       if print_console:
-          print(f"{str}: {output}")
-       else:
-          update_text(f"{str}:\n{output}")
-   except:
-     pass
+def print_check_error(name, obj, code):
+    descriptions = {
+        "CIS_CALLERIDNAME": "The name of the caller",
+        "CIS_CALLERIDNUMBER": "The number of the caller",
+        "CIS_CALLEDIDNAME": "The name of the called location",
+        "CIS_CALLEDIDNUMBER": "The number of the called location",
+        "CIS_CONNECTEDIDNAME": "The name of the connected location",
+        "CIS_CONNECTEDIDNUMBER": "The number of the connected location",
+        "CIS_REDIRECTIONIDNAME": "The name of the location to which a call has been redirected",
+        "CIS_REDIRECTIONIDNUMBER": "The number of the location to which a call has been redirected",
+        "CIS_REDIRECTINGIDNAME": "The name of the location that redirected the call",
+        "CIS_REDIRECTINGIDNUMBER": "The number of the location that redirected the call",
+        "CIS_CALLEDPARTYFRIENDLYNAME": "The called party friendly name",
+        "CIS_COMMENT": "Comment about the call",
+        "CIS_DISPLAYABLEADDRESS": "Displayable version of the address",
+        "CIS_CALLINGPARTYID": "Identifier of the calling party"
+    }
+
+    try:
+        output = obj.CallInfoString(code)
+        if bool(output):  # Only display if there's a value
+            description = descriptions.get(name, name)  # Get description, fallback to the key
+            if print_console:
+                print(f"{description}: {output}")
+            else:
+                update_text(f"{description}:\n{output}")
+    except:
+        pass
 
 def update_text(str):
     label.config(text=str)
